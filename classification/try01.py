@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""
-@File  : mamba2dDouble.py
-@Author: ZhongchenZhao
-@Date  : 2025/1/16 12:03
-@Desc  :
-Mamba2Transformer_S_Double
-"""
-
 
 
 import math
