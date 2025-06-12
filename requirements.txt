@@ -1,0 +1,15 @@
+torch==2.0.1
+torchvision==0.15.2
+torchaudio==2.0.2
+timm==0.5.4
+openmim==0.3.9
+numpy==1.24.4
+timm==0.5.4
+yacs==0.1.8
+fvcore==0.1.5.post20221221
+addict==2.4.0
+opencv-python==4.11.0.86
+matplotlib==3.7.5
+einops==0.8.1
+regex==2024.11.6
+ftfy==6.2.1
