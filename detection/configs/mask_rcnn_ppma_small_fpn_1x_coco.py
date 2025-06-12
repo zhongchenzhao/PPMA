@@ -8,7 +8,7 @@ _base_ = [
 model = dict(
     backbone=dict(
         type='ppma_small',
-        pretrained="../../checkpoints/Mamba2Transformer_Double_S_202504021000/best.pth",  # BeiJing Chao Suan
+        pretrained="../checkpoints/classification/PPMA_S_202504021000/best.pth",
         num_classes=80,
         embed_dims=[64, 128, 256, 512],                     # small
     ),

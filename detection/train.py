@@ -1,6 +1,7 @@
 """
 bash dist_train.sh ./configs/mask_rcnn_rmt_tiny_fpn_1x_coco.py 8
-bash dist_train.sh ./configs/mask_rcnn_mamba2vit_tiny_fpn_1x_coco.py 8
+bash dist_train.sh ./configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py 8
+bash dist_train.sh ./configs/mask_rcnn_ppma_small_fpn_3x_coco.py 8
 
 sbatch -p ai ./slurm_train.sh ai RMTdetT ./configs/mask_rcnn_rmt_tiny_fpn_1x_coco.py
 sbatch -p ai ./slurm_train.sh ai Mamba2ViTdetT ./configs/mask_rcnn_mamba2vit_tiny_fpn_1x_coco.py
@@ -38,6 +39,7 @@ def is_installed(package_name):
 
 ## import models
 import ppma
+import rmt
 
 
 
