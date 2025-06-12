@@ -9,10 +9,10 @@ crop_size = (512, 512)
 # optimizer
 model = dict(
     backbone=dict(
-        pretrained="../checkpoints/classification/PPMA_T_202502251000/best.pth",
-        type='ppma_tiny',
+        pretrained="../checkpoints/classification/download/RMT-S.pth",
+        type='rmt_small',
         num_classes=150,
-        embed_dims=[64, 128, 256, 512],  # tiny
+        embed_dims=[64, 128, 256, 512],  # small
     ),
     decode_head=dict(
         in_channels=[64, 128, 256, 512],

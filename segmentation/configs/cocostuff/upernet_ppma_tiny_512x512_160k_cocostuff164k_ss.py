@@ -1,8 +1,8 @@
 _base_ = [
-    '_base_/models/upernet_base.py',
-    '_base_/datasets/ade20k.py',
-    '_base_/default_runtime.py',
-    '_base_/schedules/schedule_160k.py'
+    '../_base_/models/upernet_base.py',
+    '../_base_/datasets/coco-stuff164k.py',
+    '../_base_/default_runtime.py',
+    '../_base_/schedules/schedule_160k.py'
 ]
 
 crop_size = (512, 512)
@@ -11,16 +11,16 @@ model = dict(
     backbone=dict(
         pretrained="../checkpoints/classification/PPMA_T_202502251000/best.pth",
         type='ppma_tiny',
-        num_classes=150,
+        num_classes=171,
         embed_dims=[64, 128, 256, 512],  # tiny
     ),
     decode_head=dict(
         in_channels=[64, 128, 256, 512],
-        num_classes=150
+        num_classes=171
     ),
     auxiliary_head=dict(
         in_channels=256,
-        num_classes=150
+        num_classes=171
     ),
     test_cfg=dict(mode='slide', crop_size=crop_size, stride=(341, 341)),
 )

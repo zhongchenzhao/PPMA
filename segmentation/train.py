@@ -2,6 +2,9 @@
 bash dist_train.sh ./configs/upernet_ppma_tiny_512x512_160k_ade20k_ss.py 8
 bash dist_train.sh ./configs/upernet_ppma_small_512x512_160k_ade20k_ss.py 8
 bash dist_train.sh ./configs/upernet_ppma_base_512x512_160k_ade20k_ss.py 8
+
+bash dist_train.sh ./configs/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.py 8
+
 """
 import argparse
 import copy
@@ -31,6 +34,7 @@ def is_installed(package_name):
 
 ## import models
 import ppma
+import rmt
 
 
 def parse_args():

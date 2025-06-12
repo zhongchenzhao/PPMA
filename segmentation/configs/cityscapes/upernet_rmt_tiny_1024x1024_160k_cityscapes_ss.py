@@ -1,18 +1,19 @@
 _base_ = [
-    '_base_/models/upernet_base.py',
-    '_base_/datasets/ade20k.py',
-    '_base_/default_runtime.py',
-    '_base_/schedules/schedule_160k.py'
+    '../_base_/models/upernet_base.py',
+    '../_base_/datasets/cityscapes_1024x1024_repeat.py',
+    '../_base_/default_runtime.py',
+    '../_base_/schedules/schedule_160k.py'
 ]
 
-crop_size = (512, 512)
+crop_size = (1024, 1024)        # cityscapes
 # optimizer
 model = dict(
     backbone=dict(
-        pretrained="../checkpoints/classification/PPMA_T_202502251000/best.pth",
-        type='ppma_tiny',
+        pretrained="../checkpoints/classification/download/RMT-T.pth",
+        type='rmt_tiny',
         num_classes=150,
-        embed_dims=[64, 128, 256, 512],  # tiny
+        embed_dims=[64, 128, 256, 512],                     # tiny
+
     ),
     decode_head=dict(
         in_channels=[64, 128, 256, 512],
@@ -22,7 +23,7 @@ model = dict(
         in_channels=256,
         num_classes=150
     ),
-    test_cfg=dict(mode='slide', crop_size=crop_size, stride=(341, 341)),
+    test_cfg=dict(mode='slide', crop_size=crop_size, stride=(768, 768)),
 )
 
 # optimizer
@@ -39,5 +40,6 @@ lr_config = dict(_delete_=True, policy='poly',
                  power=1.0, min_lr=0.0, by_epoch=False)
 
 # By default, models are trained on 8 GPUs with 2 images per GPU
-data=dict(samples_per_gpu=2)
+data=dict(samples_per_gpu=1)            # total batch size 8
 # data=dict(samples_per_gpu=4)            # models are trained on 4 GPUs with 4 images per GPU
+evaluation = dict(interval=4000, metric='mIoU')     # cityscapes

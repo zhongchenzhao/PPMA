@@ -41,6 +41,7 @@ def is_installed(package_name):
 
 ## import models
 import ppma
+import rmt
 
 
 def parse_args():

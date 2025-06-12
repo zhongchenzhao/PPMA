@@ -9,7 +9,7 @@ crop_size = (512, 512)
 # optimizer
 model = dict(
     backbone=dict(
-        pretrained="../../checkpoints/Mamba2Transformer_Double_B_202504101400/best.pth",
+        pretrained="../checkpoints/classification/PPMA_B_202504101400/best.pth",
         type='ppma_base',
         num_classes=150,
         embed_dims=[80, 160, 320, 512],                 # base
