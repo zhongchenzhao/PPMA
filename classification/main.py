@@ -1,7 +1,6 @@
 # modified from https://github.com/facebookresearch/deit
 """
-torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model Mamba2Transformer_Double_T --data_path /mnt/nvme_data/zzc/datasets/ImageNet1K --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/Mamba2Transformer_Double_T_202503200000
-torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model Mamba2Transformer_DoubleShared_T --data_path /mnt/nvme_data/zzc/datasets/ImageNet1K --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/Mamba2Transformer_DoubleShared_T_202503200000
+torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_T --data_path /mnt/nvme_data/zzc/datasets/ImageNet1K --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_T_202503200000
 """
 import argparse
 import datetime
@@ -29,7 +28,9 @@ import os
 
 # import models
 from models.PPMA import PPMAViT_T, PPMAViT_S, PPMAViT_B
-from models.RMT import RMT_T
+from models.PPMA_wo_RoPE import PPMAViT_wo_RoPE_T
+from models.PPMA_only_ppmva import PPMVAViT_T
+from models.RMT import RMT_T, RMT_S, RMT_B
 
 from utils_common import save_codes, save_python_command
 from utils_common import create_logger
@@ -40,6 +41,10 @@ archs = {
     'PPMAViT_S': PPMAViT_S,
     'PPMAViT_B': PPMAViT_B,
     'RMT_T': RMT_T,
+    'RMT_S': RMT_S,
+    'RMT_B': RMT_B,
+    'PPMVAViT_T': PPMVAViT_T,
+    'PPMAViT_wo_RoPE_T': PPMAViT_wo_RoPE_T,
 }
 
 
