@@ -1,6 +1,6 @@
 # Polyline Path Masked Attention for Vision Transformer
 
-Official codes for Polyline Path Masked Attention for Vision Transformer
+Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA)**
 
 
 
@@ -121,13 +121,13 @@ chmod +x install_requirements.sh
 cd classification/
 
 # PPMA-Tiny
-torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_T --data_path /mnt/nvme_data/zzc/datasets/ImageNet1K --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_T_202505010000
+torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_T --data_path <path-to-imagenet> --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_T_202505010000
 
 # PPMA-Small
-torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_S --data_path /mnt/nvme_data/zzc/datasets/ImageNet1K --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_S_202505010000
+torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_S --data_path <path-to-imagenet> --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_S_202505010000
 
 # PPMA-Base
-torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_B --data_path /mnt/nvme_data/zzc/datasets/ImageNet1K --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_B_202505010000
+torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_B --data_path <path-to-imagenet> --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_B_202505010000
 ```
 
 
