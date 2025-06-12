@@ -107,8 +107,8 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 #### 1. Requirements
 
 ```
-conda create -n zzc_ppma python=3.8.20 -y
-conda activate zzc_ppma
+conda create -n ppma python=3.8.20 -y
+conda activate ppma
 chmod +x install_requirements.sh 
 ./install_requirements.sh 
 ```
