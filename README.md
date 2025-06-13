@@ -20,7 +20,7 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 ## Getting started
 
-**TL;DR:** **We adaptes Mamba2's structured mask to 2D scaning and integrates it into the self-attention mechanism of ViTs as an explicit positional encoding.**
+**TL;DR:** **We adapt Mamba2's structured mask to 2D scanning and integrates it into the self-attention mechanism of ViTs as an explicit positional encoding.**
 
 
 
