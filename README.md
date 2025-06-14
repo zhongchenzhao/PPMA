@@ -6,11 +6,9 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 
 
-## Updates
+## 📌 Updates
 
-* ***2025.06.12*** We have released the complete training and inference code and training logs!
-
-
+*  ***2025.06.12*** We have released the complete training and inference code and training logs!
 
 
 
@@ -18,9 +16,11 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 
 
-## Getting started
 
-**TL;DR:** **We adapt Mamba2's structured mask to 2D scanning and integrate it into the self-attention mechanism of ViTs as an explicit positional encoding.**
+
+## 💡 Getting started
+
+**TL;DR:** **We adaptes Mamba2's structured mask to 2D scaning and integrates it into the self-attention mechanism of ViTs as an explicit positional encoding.**
 
 
 
@@ -36,21 +36,21 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 
 
-## Results
+## 📊 Results
 
 
 
-#### Image Classification Results on ImageNet-1K 224x224
+- #### Image Classification Results on ImageNet-1K 224x224
 
-|   Model    | #Params | FLOPs |  Acc  |                         Training log                         | Checkpoint |
-| :--------: | :-----: | :---: | :---: | :----------------------------------------------------------: | :--------: |
-| PPMA-Tiny  |   14M   | 2.7G  | 82.6% | [PPMA-Tiny](./training_logs/classification/ppma_tiny_log.txt) |            |
-| PPMA-Small |   27M   | 4.9G  | 84.2% | [PPMA-Small](./training_logs/classification/ppma_small_log.txt) |            |
-| PPMA-Base  |   54M   | 10.6G | 85.0% | [PPMA-Base](./training_logs/classification/ppma_base_log.txt) |            |
+|   Model    | #Params | FLOPs |  Acc  |                         Training log                         |                          Checkpoint                          |
+| :--------: | :-----: | :---: | :---: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| PPMA-Tiny  |   14M   | 2.7G  | 82.6% | [PPMA-Tiny](./training_logs/classification/ppma_tiny_log.txt) | [PPMA-Tiny](./training_logs/classification/ppma_tiny_log.txt) |
+| PPMA-Small |   27M   | 4.9G  | 84.2% | [PPMA-Small](./training_logs/classification/ppma_small_log.txt) |                                                              |
+| PPMA-Base  |   54M   | 10.6G | 85.0% | [PPMA-Base](./training_logs/classification/ppma_base_log.txt) |                                                              |
 
 
 
-#### Object Detection and Instance Segmentation Results on COCO with Mask R-CNN Method (1× schedule)
+- #### Object Detection and Instance Segmentation Results on COCO with Mask R-CNN Method (1× schedule)
 
 |  Backbone  | Pretrained Model | #Params | FLOPs | box mAP | mask mAP |                            Config                            |                         Training log                         | Checkpoint |
 | :--------: | :--------------: | :-----: | :---: | :-----: | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :--------: |
@@ -60,7 +60,7 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 
 
-#### Semantic Segmentation Results on ADE20K with UPerNet Method (batch size=16)
+- #### Semantic Segmentation Results on ADE20K with UPerNet Method (batch size=16)
 
 |  Backbone  | Pretrained Model | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         | Checkpoint |
 | :--------: | :--------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :--------: |
@@ -70,7 +70,7 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 
 
-#### Semantic Segmentation Results on Cityscapes with UPerNet Method (batch size=8)
+- #### Semantic Segmentation Results on Cityscapes with UPerNet Method (batch size=8)
 
 |  Backbone  | Pretrained Model | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         | Checkpoint |
 | :--------: | :--------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :--------: |
@@ -80,7 +80,7 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 
 
-#### Mask Visualization
+- #### Mask Visualization
 
 
 
@@ -88,7 +88,7 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 
 
-#### Masked Attention Visualization
+- #### Masked Attention Visualization
 
 ![contribution](./figures/ILSVRC2012_val_00018280_atten_map.gif)
 
@@ -102,7 +102,7 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 
 
-## How to use
+## 🚀 Quick Start
 
 #### 1. Requirements
 
@@ -115,7 +115,34 @@ chmod +x install_requirements.sh
 
 
 
-#### 2. Training on ImageNet-1K
+#### 2.Data Preparation
+
+* ImageNet is an image database organized according to the WordNet hierarchy. Download and extract ImageNet train and val images from http://image-net.org/. Organize the data into the following directory structure:
+
+  ```
+  imagenet/
+  ├── train/
+  │   ├── n01440764/  (Example synset ID)
+  │   │   ├── image1.JPEG
+  │   │   ├── image2.JPEG
+  │   │   └── ...
+  │   ├── n01443537/  (Another synset ID)
+  │   │   └── ...
+  │   └── ...
+  └── val/
+      ├── n01440764/  (Example synset ID)
+      │   ├── image1.JPEG
+      │   └── ...
+      └── ...
+  ```
+
+* COCO is a large-scale object detection, segmentation, and captioning dataset. Please visit http://cocodataset.org/ for more information, including for the data, paper, and tutorials. [COCO API](https://github.com/cocodataset/cocoapi) also provides a concise and efficient way to process the data.
+
+* ADE20K is composed of more than 27K images from the SUN and Places databases. Please visit https://ade20k.csail.mit.edu/ for more information and see the [GitHub Repository](https://github.com/CSAILVision/ADE20K) for an overview of how to access and explore ADE20K.
+
+
+
+#### 3. Training on ImageNet-1K
 
 ```
 cd classification/
@@ -132,7 +159,7 @@ torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --mode
 
 
 
-#### 2. Training on COCO2017
+#### 4. Training on COCO2017
 
 ```
 cd detection/
@@ -168,7 +195,7 @@ bash dist_test.sh ./configs/mask_rcnn_ppma_base_fpn_3x_coco.py <checkpoint-path>
 
 
 
-#### 3. Training on ADE20K
+#### 5. Training on ADE20K
 
 ```
 cd segmentation/
@@ -198,7 +225,7 @@ bash dist_test.sh ./configs/upernet_ppma_base_512x512_160k_ade20k_ss.py <checkpo
 
 
 
-#### 4. Training on Cityscapes
+#### 6. Training on Cityscapes
 
 ```
 cd segmentation/
@@ -229,7 +256,7 @@ bash dist_test.sh ./configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscap
 
 
 
-## Acknowledgement
+## 💌 Acknowledgement
 
 * *This project is built using [timm](https://github.com/huggingface/pytorch-image-models), [MMDetection](https://github.com/open-mmlab/mmdetection), [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) libraries, and [DeiT](https://github.com/facebookresearch/deit), [RMT](https://github.com/qhfan/RMT), [TransNeXt](https://github.com/DaiShiResearch/TransNeXt/tree/main) repositories. We express our heartfelt gratitude for the contributions of these open-source projects.*
 * *We also want to express our gratitude for some articles introducing this project and derivative implementations based on this project.*
@@ -238,7 +265,7 @@ bash dist_test.sh ./configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscap
 
 
 
-## License
+## 🎫 License
 
 This project is released under the Apache 2.0 license. Please see the [LICENSE](/LICENSE) file for more information.
 
@@ -246,7 +273,7 @@ This project is released under the Apache 2.0 license. Please see the [LICENSE](
 
 
 
-## Citation
+## 🖊️ Citation
 
 If you use PPMA in your research, please consider the following BibTeX entry and giving us a star:
 ```BibTeX
