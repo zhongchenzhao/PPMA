@@ -1,13 +1,20 @@
 # Polyline Path Masked Attention for Vision Transformer
 
-Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA)**
+✨Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA)**
 
 
+
+
+
+
+
+**🤗 Don’t hesitate to give me a ⭐️, if you are interested in this project!**
 
 
 
 ## 📌 Updates
 
+*  ***2025.06.15*** We have released the complete pre-trained model weights!
 *  ***2025.06.12*** We have released the complete training and inference code and training logs!
 
 
@@ -44,39 +51,39 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 |   Model    | #Params | FLOPs |  Acc  |                         Training log                         |                          Checkpoint                          |
 | :--------: | :-----: | :---: | :---: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| PPMA-Tiny  |   14M   | 2.7G  | 82.6% | [PPMA-Tiny](./training_logs/classification/ppma_tiny_log.txt) | [PPMA-Tiny](./training_logs/classification/ppma_tiny_log.txt) |
-| PPMA-Small |   27M   | 4.9G  | 84.2% | [PPMA-Small](./training_logs/classification/ppma_small_log.txt) |                                                              |
-| PPMA-Base  |   54M   | 10.6G | 85.0% | [PPMA-Base](./training_logs/classification/ppma_base_log.txt) |                                                              |
+| PPMA-Tiny  |   14M   | 2.7G  | 82.6% | [PPMA-Tiny](./training_logs/classification/ppma_tiny_log.txt) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) |
+| PPMA-Small |   27M   | 4.9G  | 84.2% | [PPMA-Small](./training_logs/classification/ppma_small_log.txt) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) |
+| PPMA-Base  |   54M   | 10.6G | 85.0% | [PPMA-Base](./training_logs/classification/ppma_base_log.txt) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |
 
 
 
 - #### Object Detection and Instance Segmentation Results on COCO with Mask R-CNN Method (1× schedule)
 
-|  Backbone  | Pretrained Model | #Params | FLOPs | box mAP | mask mAP |                            Config                            |                         Training log                         | Checkpoint |
-| :--------: | :--------------: | :-----: | :---: | :-----: | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :--------: |
-| PPMA-Tiny  |                  |   33M   | 218G  |  47.1   |   42.4   | [PPMA-Tiny](./detection/configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py) | [PPMA-Tiny](./training_logs/detection/mask_rcnn_ppma_tiny_fpn_1x_coco.log) |            |
-| PPMA-Small |                  |   46M   | 263G  |  49.2   |   43.8   | [PPMA-Small](./detection/configs/mask_rcnn_ppma_small_fpn_1x_coco.py) | [PPMA-Small](./training_logs/detection/mask_rcnn_ppma_small_fpn_1x_coco.log) |            |
-| PPMA-Base  |                  |   73M   | 374G  |  51.1   |   45.5   | [PPMA-Base](./detection/configs/mask_rcnn_ppma_base_fpn_1x_coco.py) | [PPMA-Base](./training_logs/detection/mask_rcnn_ppma_base_fpn_1x_coco.log) |            |
+|  Backbone  |                       Pretrained Model                       | #Params | FLOPs | box mAP | mask mAP |                            Config                            |                         Training log                         |                          Checkpoint                          |
+| :--------: | :----------------------------------------------------------: | :-----: | :---: | :-----: | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| PPMA-Tiny  | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) |   33M   | 218G  |  47.1   |   42.4   | [PPMA-Tiny](./detection/configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py) | [PPMA-Tiny](./training_logs/detection/mask_rcnn_ppma_tiny_fpn_1x_coco.log) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_tiny_fpn_1x_coco/epoch_12.pth) |
+| PPMA-Small | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) |   46M   | 263G  |  49.2   |   43.8   | [PPMA-Small](./detection/configs/mask_rcnn_ppma_small_fpn_1x_coco.py) | [PPMA-Small](./training_logs/detection/mask_rcnn_ppma_small_fpn_1x_coco.log) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_small_fpn_1x_coco/epoch_12.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |   73M   | 374G  |  51.1   |   45.5   | [PPMA-Base](./detection/configs/mask_rcnn_ppma_base_fpn_1x_coco.py) | [PPMA-Base](./training_logs/detection/mask_rcnn_ppma_base_fpn_1x_coco.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_base_fpn_1x_coco/epoch_12.pth) |
 
 
 
 - #### Semantic Segmentation Results on ADE20K with UPerNet Method (batch size=16)
 
-|  Backbone  | Pretrained Model | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         | Checkpoint |
-| :--------: | :--------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :--------: |
-| PPMA-Tiny  |                  |  512×512   |   43M   | 983G  |   48.7    |   49.1    | [PPMA-Tiny](./segmentation/configs/upernet_ppma_tiny_512x512_160k_ade20k_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_512x512_160k_ade20k_ss.log) |            |
-| PPMA-Small |                  |  512×512   |   56M   | 984G  |   51.1    |   52.0    | [PPMA-Small](./segmentation/configs/upernet_ppma_small_512x512_160k_ade20k_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_512x512_160k_ade20k_ss.log) |            |
-| PPMA-Base  |                  |  512×512   |   83M   | 1137G |   52.3    |   53.0    | [PPMA-Base](./segmentation/configs/upernet_ppma_base_512x512_160k_ade20k_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_512x512_160k_ade20k_ss.log) |            |
+|  Backbone  |                       Pretrained Model                       | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         |                          Checkpoint                          |
+| :--------: | :----------------------------------------------------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| PPMA-Tiny  | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) |  512×512   |   43M   | 983G  |   48.7    |   49.1    | [PPMA-Tiny](./segmentation/configs/upernet_ppma_tiny_512x512_160k_ade20k_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_512x512_160k_ade20k_ss.log) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_tiny_512x512_160k_ade20k_ss/iter_160000.pth) |
+| PPMA-Small | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) |  512×512   |   56M   | 984G  |   51.1    |   52.0    | [PPMA-Small](./segmentation/configs/upernet_ppma_small_512x512_160k_ade20k_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_512x512_160k_ade20k_ss.log) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_small_512x512_160k_ade20k_ss/iter_160000.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |  512×512   |   83M   | 1137G |   52.3    |   53.0    | [PPMA-Base](./segmentation/configs/upernet_ppma_base_512x512_160k_ade20k_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_512x512_160k_ade20k_ss.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_base_512x512_160k_ade20k_ss/iter_160000.pth) |
 
 
 
 - #### Semantic Segmentation Results on Cityscapes with UPerNet Method (batch size=8)
 
-|  Backbone  | Pretrained Model | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         | Checkpoint |
-| :--------: | :--------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :--------: |
-| PPMA-Tiny  |                  | 1024×1024  |   43M   | 983G  |   82.7    |   83.5    | [PPMA-Tiny](./segmentation/configs/cityscapes/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.log) |            |
-| PPMA-Small |                  | 1024×1024  |   56M   | 984G  |   83.7    |   84.0    | [PPMA-Small](./segmentation/configs/cityscapes/upernet_ppma_small_1024x1024_160k_cityscapes_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_1024x1024_160k_cityscapes_ss.log) |            |
-| PPMA-Base  |                  | 1024×1024  |   83M   | 1137G |   83.9    |   84.3    | [PPMA-Base](./segmentation/configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_1024x1024_160k_cityscapes_ss.log) |            |
+|  Backbone  |                       Pretrained Model                       | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         |                          Checkpoint                          |
+| :--------: | :----------------------------------------------------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| PPMA-Tiny  | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) | 1024×1024  |   43M   | 983G  |   82.7    |   83.5    | [PPMA-Tiny](./segmentation/configs/cityscapes/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.log) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss/iter_160000.pth) |
+| PPMA-Small | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) | 1024×1024  |   56M   | 984G  |   83.7    |   84.0    | [PPMA-Small](./segmentation/configs/cityscapes/upernet_ppma_small_1024x1024_160k_cityscapes_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_1024x1024_160k_cityscapes_ss.log) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_small_1024x1024_160k_cityscapes_ss/iter_160000.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) | 1024×1024  |   83M   | 1137G |   83.9    |   84.3    | [PPMA-Base](./segmentation/configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_1024x1024_160k_cityscapes_ss.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_base_1024x1024_160k_cityscapes_ss/iter_160000.pth) |
 
 
 
@@ -90,13 +97,9 @@ Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA
 
 - #### Masked Attention Visualization
 
-![contribution](./figures/ILSVRC2012_val_00018280_atten_map.gif)
-
-
-
 ![contribution](./figures/MaskedAttentionMap.png)
 
-
+![contribution](README.assets/ILSVRC2012_val_00018280_atten_map.gif)
 
 
 
@@ -265,7 +268,7 @@ bash dist_test.sh ./configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscap
 
 
 
-## 🎫 License
+## 📄 License
 
 This project is released under the Apache 2.0 license. Please see the [LICENSE](/LICENSE) file for more information.
 
@@ -273,7 +276,7 @@ This project is released under the Apache 2.0 license. Please see the [LICENSE](
 
 
 
-## 🖊️ Citation
+## 🔗 Citation
 
 If you use PPMA in your research, please consider the following BibTeX entry and giving us a star:
 ```BibTeX
