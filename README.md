@@ -10,7 +10,7 @@
 
 ## 📌 Updates
 
-* ***2025.06.15*** We have released the complete pre-trained model weights ! [![Checkpoint](https://img.shields.io/badge/Checkpoint-Google%20Drive-34A853?logo=google-drive&logoColor=white)](https://drive.google.com/drive/folders/1rkUrYuCc_t8GL4MLuoR9zqy-ztplaUan?usp=sharing)
+* ***2025.06.15*** We have released the complete pre-trained model weights !
 
   
 
