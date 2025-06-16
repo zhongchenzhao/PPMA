@@ -10,7 +10,7 @@
 
 ## 📌 Updates
 
-* ***2025.06.15*** We have released the complete pre-trained model weights !
+* ***2025.06.15*** We have released the complete pre-trained model weights!
 
   
 
@@ -119,7 +119,7 @@ chmod +x install_requirements.sh
 
 
 
-#### 2.Data Preparation
+#### 2. Data Preparation
 
 * ImageNet is an image database organized according to the WordNet hierarchy. Download and extract ImageNet train and val images from http://image-net.org/. Organize the data into the following directory structure:
 
