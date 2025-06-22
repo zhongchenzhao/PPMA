@@ -10,7 +10,7 @@
 
 ## 📌 Updates
 
-* ***2025.06.21*** 
+
 
 * ***2025.06.15*** We have released the complete pre-trained model weights!
 
