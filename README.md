@@ -38,8 +38,11 @@
 
 
 
+**An illustration of the 2D polyline path scanning on a 3×3 grid.**
 
 
+
+![contribution](./figures/PolylinePathMask.png)
 
 
 
