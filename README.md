@@ -4,23 +4,15 @@
 
 **🤗 Don’t hesitate to give me a ⭐️, if you are interested in this project!**
 
-[![Checkpoint](https://img.shields.io/badge/Checkpoint-Google%20Drive-34A853?logo=google-drive&logoColor=white)](https://drive.google.com/drive/folders/1rkUrYuCc_t8GL4MLuoR9zqy-ztplaUan?usp=sharing)
+[![arXiv paper](https://img.shields.io/badge/arxiv paper-2506.15940-b31b1b?style=plastic&color=b31b1b&link=https%3A%2F%2Farxiv.org%2Fabs%2F2311.17132)](https://arxiv.org/pdf/2506.15940)  [![Hugging Face Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-blue)](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints)
 
 
 
 ## 📌 Updates
 
-
-
-* ***2025.06.15*** We have released the complete pre-trained model weights!
-
-  
-
-*  ***2025.06.12*** We have released the complete training and inference code and training logs!
-
-
-
-
+* ***2025.06.19*** We have submitted the preprint of our paper to [Arxiv](https://arxiv.org/pdf/2506.15940)!
+* ***2025.06.15*** We have released the complete pre-trained model weights to [Hugging Face](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints) !
+*  ***2025.06.12*** We have released the complete training and inference code and [training logs](./training_logs)!
 
 
 
@@ -36,14 +28,21 @@
 
 
 
-
-
 **An illustration of the 2D polyline path scanning on a 3×3 grid.**
 
+![PolylinePathMask](./figures/PolylinePathMask.png)
 
 
-![contribution](./figures/PolylinePathMask.png)
 
+
+
+## 🧠 Abstract
+
+**Global dependency modeling** and **spatial position modeling** are two core issues of the foundational architecture design in current deep learning frameworks. Recently, Vision Transformers (ViTs) have achieved remarkable success in computer vision, leveraging the powerful global dependency modeling capability of the self-attention mechanism. 	Furthermore, Mamba2 has demonstrated its significant potential in natural language processing tasks by explicitly modeling the spatial adjacency prior through the structured mask. 
+
+In this paper, we propose **Polyline Path Masked Attention** (**PPMA**) that integrates the self-attention mechanism of ViTs with an enhanced structured mask of Mamba2, harnessing the complementary strengths of both architectures. Specifically, we first ameliorate the traditional structured mask of Mamba2 by introducing a **2D polyline path scanning strategy** and derive its corresponding structured mask, polyline path mask, which better preserves the adjacency relationships among image tokens. Notably, we conduct a thorough theoretical analysis on the structural characteristics of the proposed polyline path mask and design an efficient algorithm for the computation of the polyline path mask. Next, we embed the polyline path mask into the self-attention mechanism of ViTs, enabling explicit modeling of spatial adjacency prior. 
+
+Extensive experiments on standard benchmarks, including image classification, object detection, and segmentation, demonstrate that our model outperforms previous state-of-the-art approaches based on both state-space models and Transformers. For example, our proposed PPMA-T/S/B models achieve **48.7%**/**51.1%**/**52.3%** mIoU on the ADE20K semantic segmentation task, surpassing RMT-T/S/B by **0.7%**/**1.3%**/**0.3%**, respectively.
 
 
 
