@@ -4,7 +4,7 @@
 
 **🤗 Don’t hesitate to give me a ⭐️, if you are interested in this project!**
 
-[![arXiv paper](https://img.shields.io/badge/arxiv paper-2506.15940-b31b1b?style=plastic&color=b31b1b&link=https%3A%2F%2Farxiv.org%2Fabs%2F2311.17132)](https://arxiv.org/pdf/2506.15940) 
+[![arXiv paper](https://img.shields.io/badge/arxiv paper-15940-b31b1b?style=plastic&color=b31b1b&link=https%3A%2F%2Farxiv.org%2Fabs%2F2311.17132)](https://arxiv.org/pdf/2506.15940) 
 [![Hugging Face Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-blue)](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints)
 
 
