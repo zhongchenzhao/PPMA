@@ -1,174 +1,294 @@
-# TransNeXt
+# Polyline Path Masked Attention for Vision Transformer
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transnext-robust-foveal-visual-perception-for/domain-generalization-on-imagenet-a)](https://paperswithcode.com/sota/domain-generalization-on-imagenet-a?p=transnext-robust-foveal-visual-perception-for)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transnext-robust-foveal-visual-perception-for/object-detection-on-coco-minival)](https://paperswithcode.com/sota/object-detection-on-coco-minival?p=transnext-robust-foveal-visual-perception-for)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/transnext-robust-foveal-visual-perception-for/semantic-segmentation-on-ade20k)](https://paperswithcode.com/sota/semantic-segmentation-on-ade20k?p=transnext-robust-foveal-visual-perception-for)
-
-[![arXiv](https://img.shields.io/badge/arxiv-2311.17132-b31b1b?style=plastic&color=b31b1b&link=https%3A%2F%2Farxiv.org%2Fabs%2F2311.17132)](https://arxiv.org/abs/2311.17132)
-[![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/papers/2311.17132)
-[![License](https://img.shields.io/badge/LICENSE-Apache%202.0-blue.svg)](/LICENSE)
-
-Official PyTorch implementation
-of ["TransNeXt: Robust Foveal Visual Perception for Vision Transformers"](https://arxiv.org/pdf/2311.17132.pdf) [CVPR 2024]
-.
+✨Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA)**
 
 **🤗 Don’t hesitate to give me a ⭐️, if you are interested in this project!**
 
-## Updates
+[![arXiv](https://img.shields.io/badge/arXiv%20paper-2506.15940-b31b1b.svg)](https://arxiv.org/pdf/2506.15940) [![Hugging Face Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-blue)](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints)
 
-***2024.06.08*** We have created an explanatory video for our paper. You can watch it on [YouTube](https://www.youtube.com/watch?v=MTv3QpNXMU8) or [BiliBili](https://www.bilibili.com/video/BV1693ReyE9F).
 
-***2024.04.20*** We have released the complete training and inference code, pre-trained model weights, and training
-logs!
 
-***2024.02.26*** Our paper has been accepted by **CVPR 2024**! 🎉
+## 📌 Updates
 
-***2023.11.28*** We have submitted the preprint of our paper to [Arxiv](https://arxiv.org/abs/2311.17132)
+* ***2025.06.19*** We have submitted the preprint of our paper to [Arxiv](https://arxiv.org/pdf/2506.15940)!
+* ***2025.06.15*** We have released the complete pre-trained model weights to [Hugging Face](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints) !
+*  ***2025.06.12*** We have released the complete training and inference code and [training logs](./training_logs)!
 
-***2023.09.21*** We have submitted our paper and the model code to OpenReview, where it is publicly accessible.
 
-## Current Progress
 
-:heavy_check_mark: Release of model code and CUDA implementation for acceleration.
 
-:heavy_check_mark: Release of comprehensive training and inference code. 
 
-:heavy_check_mark: Release of pretrained model weights and training logs.
+## 💡 Getting started
 
-## Motivation and Highlights
+**TL;DR:** **We adapt Mamba2's structured mask to 2D scanning and integrates it into the self-attention mechanism of ViTs as an explicit positional encoding.**
 
-* Our study observes unnatural visual perception (**blocky artifacts**) prevalent in the ERF of many visual backbones. We found that these artifacts, related to the design of their token mixers, are common in
-existing efficient ViTs and CNNs, and are difficult to eliminate through deep layer stacking. Our **proposed pixel-focused attention and aggregated attention**, designed through biomimicry, have provided a very effective solution for the artifact phenomenon, achieving natural and smooth visual perception.
 
-    ![biological_vision](figures/biological_vision.jpg "biological_vision")
 
-* Our study reevaluates the conventional belief of superior multi-scale adaptability in CNNs over ViTs. We highlight two key findings: 
-    * Existing **large-kernel CNNs** ([RepLKNet](https://github.com/DingXiaoH/RepLKNet-pytorch), [SLaK](https://github.com/VITA-Group/SLaK)) exhibit a **drastic performance degradation** in multi-scale inference. 
-    * Our proposed TransNeXt, employing length-scaled cosine attention and extrapolative positional bias, **significantly outperforms** [ConvNeXt](https://github.com/facebookresearch/ConvNeXt) in **largescale image extrapolation**.
-<div align="center">
-    <img src="figures/multi_scale_inference.jpg" alt="multi_scale_inference" style="width: 60%;" />
-</div>
+![contribution](./figures/contribution.png)
 
-## Methods
-#### Pixel-focused attention (Left) & aggregated attention (Right):
 
-![pixel-focused_attention](figures/pixel-focused_attention.jpg "pixel-focused_attention")
 
-#### Convolutional GLU (First on the right):
+**An illustration of the 2D polyline path scanning on a 3×3 grid.**
 
-![Convolutional GLU](figures/feedforward_variants.jpg "Convolutional GLU")
+![PolylinePathMask](./figures/PolylinePathMask.png)
 
-## Results
 
-#### Image Classification, Detection and Segmentation:
 
-![experiment_figure](figures/experiment_figure.jpg "experiment_figure")
 
-#### Attention Visualization:
 
-![foveal_peripheral_vision](figures/foveal_peripheral_vision.jpg "foveal_peripheral_vision")
+## 🧠 Abstract
 
-## Model Zoo
+**Global dependency modeling** and **spatial position modeling** are two core issues of the foundational architecture design in current deep learning frameworks. Recently, Vision Transformers (ViTs) have achieved remarkable success in computer vision, leveraging the powerful global dependency modeling capability of the self-attention mechanism. 	Furthermore, Mamba2 has demonstrated its significant potential in natural language processing tasks by explicitly modeling the spatial adjacency prior through the structured mask. 
 
-### Image Classification
+In this paper, we propose **Polyline Path Masked Attention** (**PPMA**) that integrates the self-attention mechanism of ViTs with an enhanced structured mask of Mamba2, harnessing the complementary strengths of both architectures. Specifically, we first ameliorate the traditional structured mask of Mamba2 by introducing a **2D polyline path scanning strategy** and derive its corresponding structured mask, polyline path mask, which better preserves the adjacency relationships among image tokens. Notably, we conduct a thorough theoretical analysis on the structural characteristics of the proposed polyline path mask and design an efficient algorithm for the computation of the polyline path mask. Next, we embed the polyline path mask into the self-attention mechanism of ViTs, enabling explicit modeling of spatial adjacency prior. 
 
-***Classification code & weights & configs & training logs are >>>[here](classification/)<<<.***
+Extensive experiments on standard benchmarks, including image classification, object detection, and segmentation, demonstrate that our model outperforms previous state-of-the-art approaches based on both state-space models and Transformers. For example, our proposed PPMA-T/S/B models achieve **48.7%**/**51.1%**/**52.3%** mIoU on the ADE20K semantic segmentation task, surpassing RMT-T/S/B by **0.7%**/**1.3%**/**0.3%**, respectively.
 
-**ImageNet-1K 224x224 pre-trained models:**
 
-| Model | #Params | #FLOPs |IN-1K | IN-A | IN-C&#8595; |IN-R|Sketch|IN-V2|Download |Config| Log |
-|:---:|:---:|:---:|:---:| :---:|:---:|:---:|:---:| :---:|:---:|:---:|:---:|
-| TransNeXt-Micro|12.8M|2.7G| 82.5 | 29.9 | 50.8|45.8|33.0|72.6|[model](https://huggingface.co/DaiShiResearch/transnext-micro-224-1k/resolve/main/transnext_micro_224_1k.pth?download=true) |[config](/classification/configs/transnext_micro.py)|[log](https://huggingface.co/DaiShiResearch/transnext-micro-224-1k/raw/main/transnext_micro_224_1k.txt) |
-| TransNeXt-Tiny |28.2M|5.7G| 84.0| 39.9| 46.5|49.6|37.6|73.8|[model](https://huggingface.co/DaiShiResearch/transnext-tiny-224-1k/resolve/main/transnext_tiny_224_1k.pth?download=true)|[config](/classification/configs/transnext_tiny.py)|[log](https://huggingface.co/DaiShiResearch/transnext-tiny-224-1k/raw/main/transnext_tiny_224_1k.txt)|
-| TransNeXt-Small |49.7M|10.3G| 84.7| 47.1| 43.9|52.5| 39.7|74.8 |[model](https://huggingface.co/DaiShiResearch/transnext-small-224-1k/resolve/main/transnext_small_224_1k.pth?download=true)|[config](/classification/configs/transnext_small.py)|[log](https://huggingface.co/DaiShiResearch/transnext-small-224-1k/raw/main/transnext_small_224_1k.txt)|
-| TransNeXt-Base |89.7M|18.4G| 84.8| 50.6|43.5|53.9|41.4|75.1| [model](https://huggingface.co/DaiShiResearch/transnext-base-224-1k/resolve/main/transnext_base_224_1k.pth?download=true)|[config](/classification/configs/transnext_base.py)|[log](https://huggingface.co/DaiShiResearch/transnext-base-224-1k/raw/main/transnext_base_224_1k.txt)|
 
-**ImageNet-1K 384x384 fine-tuned models:**
+## 📊 Results
 
-| Model | #Params | #FLOPs |IN-1K | IN-A |IN-R|Sketch|IN-V2| Download |Config|
-|:---:|:---:|:---:|:---:| :---:|:---:|:---:| :---:|:---:|:---:|
-| TransNeXt-Small |49.7M|32.1G| 86.0| 58.3|56.4|43.2|76.8| [model](https://huggingface.co/DaiShiResearch/transnext-small-384-1k-ft-1k/resolve/main/transnext_small_384_1k_ft_1k.pth?download=true)|[config](/classification/configs/finetune/transnext_small_384_ft.py)|
-| TransNeXt-Base |89.7M|56.3G| 86.2| 61.6|57.7|44.7|77.0| [model](https://huggingface.co/DaiShiResearch/transnext-base-384-1k-ft-1k/resolve/main/transnext_base_384_1k_ft_1k.pth?download=true)|[config](/classification/configs/finetune/transnext_base_384_ft.py)|
+[![Checkpoint](https://img.shields.io/badge/Checkpoint-Google%20Drive-34A853?logo=google-drive&logoColor=white)](https://drive.google.com/drive/folders/1rkUrYuCc_t8GL4MLuoR9zqy-ztplaUan?usp=sharing)
 
-**ImageNet-1K 256x256 pre-trained model fully utilizing aggregated attention at all stages:**
 
-*(See Table.9 in Appendix D.6 for details)*
 
-| Model |Token mixer| #Params | #FLOPs |IN-1K |Download |Config| Log |
-|:---:|:---:|:---:|:---:| :---:|:---:|:---:|:---:|
-|TransNeXt-Micro|**A-A-A-A**|13.1M|3.3G| 82.6 |[model](https://huggingface.co/DaiShiResearch/transnext-micro-AAAA-256-1k/resolve/main/transnext_micro_AAAA_256_1k.pth?download=true) |[config](/classification/configs/transnext_micro_AAAA_256.py)|[log](https://huggingface.co/DaiShiResearch/transnext-micro-AAAA-256-1k/blob/main/transnext_micro_AAAA_256_1k.txt) |
+- #### Image Classification Results on ImageNet-1K 224x224
 
-### Object Detection
+|   Model    | #Params | FLOPs |  Acc  |                         Training log                         |                          Checkpoint                          |
+| :--------: | :-----: | :---: | :---: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| PPMA-Tiny  |   14M   | 2.7G  | 82.6% | [PPMA-Tiny](./training_logs/classification/ppma_tiny_log.txt) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) |
+| PPMA-Small |   27M   | 4.9G  | 84.2% | [PPMA-Small](./training_logs/classification/ppma_small_log.txt) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) |
+| PPMA-Base  |   54M   | 10.6G | 85.0% | [PPMA-Base](./training_logs/classification/ppma_base_log.txt) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |
 
-***Object detection code & weights & configs & training logs are >>>[here](detection/)<<<.***
 
-**COCO object detection and instance segmentation results using the Mask R-CNN method:**
 
-| Backbone | Pretrained Model| Lr Schd| box mAP | mask mAP | #Params | Download |Config| Log |
-|:---:|:---:|:---:|:---:| :---:|:---:|:---:|:---:|:---:|
-| TransNeXt-Tiny | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-tiny-224-1k/resolve/main/transnext_tiny_224_1k.pth?download=true) |1x|49.9|44.6|47.9M|[model](https://huggingface.co/DaiShiResearch/maskrcnn-transnext-tiny-coco/resolve/main/mask_rcnn_transnext_tiny_fpn_1x_coco_in1k.pth?download=true)|[config](/detection/maskrcnn/configs/mask_rcnn_transnext_tiny_fpn_1x_coco.py)|[log](https://huggingface.co/DaiShiResearch/maskrcnn-transnext-tiny-coco/raw/main/mask_rcnn_transnext_tiny_fpn_1x_coco_in1k.log.json)|
-| TransNeXt-Small | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-small-224-1k/resolve/main/transnext_small_224_1k.pth?download=true) |1x|51.1|45.5|69.3M|[model](https://huggingface.co/DaiShiResearch/maskrcnn-transnext-small-coco/resolve/main/mask_rcnn_transnext_small_fpn_1x_coco_in1k.pth?download=true)|[config](/detection/maskrcnn/configs/mask_rcnn_transnext_small_fpn_1x_coco.py)|[log](https://huggingface.co/DaiShiResearch/maskrcnn-transnext-small-coco/raw/main/mask_rcnn_transnext_small_fpn_1x_coco_in1k.log.json)|
-| TransNeXt-Base | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-base-224-1k/resolve/main/transnext_base_224_1k.pth?download=true) |1x|51.7|45.9|109.2M|[model](https://huggingface.co/DaiShiResearch/maskrcnn-transnext-base-coco/resolve/main/mask_rcnn_transnext_base_fpn_1x_coco_in1k.pth?download=true)|[config](/detection/maskrcnn/configs/mask_rcnn_transnext_base_fpn_1x_coco.py)|[log](https://huggingface.co/DaiShiResearch/maskrcnn-transnext-base-coco/raw/main/mask_rcnn_transnext_base_fpn_1x_coco_in1k.log.json)|
-* *When we checked the training logs, we found that the mask mAP and other detailed performance of the Mask R-CNN using the TransNeXt-Tiny backbone were **even better** than reported in the paper (versions V1 and V2). We have already fixed this in version V3  (it should be a data entry error).*
+- #### Object Detection and Instance Segmentation Results on COCO with Mask R-CNN Method (1× schedule)
 
-**COCO object detection results using the DINO method:**
+|  Backbone  |                       Pretrained Model                       | #Params | FLOPs | box mAP | mask mAP |                            Config                            |                         Training log                         |                          Checkpoint                          |
+| :--------: | :----------------------------------------------------------: | :-----: | :---: | :-----: | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| PPMA-Tiny  | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) |   33M   | 218G  |  47.1   |   42.4   | [PPMA-Tiny](./detection/configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py) | [PPMA-Tiny](./training_logs/detection/mask_rcnn_ppma_tiny_fpn_1x_coco.log) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_tiny_fpn_1x_coco/epoch_12.pth) |
+| PPMA-Small | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) |   46M   | 263G  |  49.2   |   43.8   | [PPMA-Small](./detection/configs/mask_rcnn_ppma_small_fpn_1x_coco.py) | [PPMA-Small](./training_logs/detection/mask_rcnn_ppma_small_fpn_1x_coco.log) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_small_fpn_1x_coco/epoch_12.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |   73M   | 374G  |  51.1   |   45.5   | [PPMA-Base](./detection/configs/mask_rcnn_ppma_base_fpn_1x_coco.py) | [PPMA-Base](./training_logs/detection/mask_rcnn_ppma_base_fpn_1x_coco.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_base_fpn_1x_coco/epoch_12.pth) |
 
-| Backbone | Pretrained Model| scales | epochs | box mAP | #Params | Download |Config| Log |
-|:---:|:---:|:---:|:---:| :---:|:---:|:---:|:---:|:---:|
-| TransNeXt-Tiny | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-tiny-224-1k/resolve/main/transnext_tiny_224_1k.pth?download=true)|4scale | 12|55.1|47.8M|[model](https://huggingface.co/DaiShiResearch/dino-4scale-transnext-tiny-coco/resolve/main/dino_4scale_transnext_tiny_12e_in1k.pth?download=true)|[config](/detection/dino/configs/dino-4scale_transnext_tiny-12e_coco.py)|[log](https://huggingface.co/DaiShiResearch/dino-4scale-transnext-tiny-coco/raw/main/dino_4scale_transnext_tiny_12e_in1k.json)|
-| TransNeXt-Tiny | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-tiny-224-1k/resolve/main/transnext_tiny_224_1k.pth?download=true)|5scale | 12|55.7|48.1M|[model](https://huggingface.co/DaiShiResearch/dino-5scale-transnext-tiny-coco/resolve/main/dino_5scale_transnext_tiny_12e_in1k.pth?download=true)|[config](/detection/dino/configs/dino-5scale_transnext_tiny-12e_coco.py)|[log](https://huggingface.co/DaiShiResearch/dino-5scale-transnext-tiny-coco/raw/main/dino_5scale_transnext_tiny_12e_in1k.json)|
-| TransNeXt-Small | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-small-224-1k/resolve/main/transnext_small_224_1k.pth?download=true)|5scale | 12|56.6|69.6M|[model](https://huggingface.co/DaiShiResearch/dino-5scale-transnext-small-coco/resolve/main/dino_5scale_transnext_small_12e_in1k.pth?download=true)|[config](/detection/dino/configs/dino-5scale_transnext_small-12e_coco.py)|[log](https://huggingface.co/DaiShiResearch/dino-5scale-transnext-small-coco/raw/main/dino_5scale_transnext_small_12e_in1k.json)|
-| TransNeXt-Base | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-base-224-1k/resolve/main/transnext_base_224_1k.pth?download=true)|5scale | 12|57.1|110M|[model](https://huggingface.co/DaiShiResearch/dino-5scale-transnext-base-coco/resolve/main/dino_5scale_transnext_base_12e_in1k.pth?download=true)|[config](/detection/dino/configs/dino-5scale_transnext_base-12e_coco.py)|[log](https://huggingface.co/DaiShiResearch/dino-5scale-transnext-base-coco/raw/main/dino_5scale_transnext_base_12e_in1k.json)|
 
-### Semantic Segmentation
 
-***Semantic segmentation code & weights & configs & training logs are >>>[here](segmentation/)<<<.***
+- #### Semantic Segmentation Results on ADE20K with UPerNet Method (batch size=16)
 
-**ADE20K semantic segmentation results using the UPerNet method:**
+|  Backbone  |                       Pretrained Model                       | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         |                          Checkpoint                          |
+| :--------: | :----------------------------------------------------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| PPMA-Tiny  | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) |  512×512   |   43M   | 983G  |   48.7    |   49.1    | [PPMA-Tiny](./segmentation/configs/upernet_ppma_tiny_512x512_160k_ade20k_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_512x512_160k_ade20k_ss.log) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_tiny_512x512_160k_ade20k_ss/iter_160000.pth) |
+| PPMA-Small | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) |  512×512   |   56M   | 984G  |   51.1    |   52.0    | [PPMA-Small](./segmentation/configs/upernet_ppma_small_512x512_160k_ade20k_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_512x512_160k_ade20k_ss.log) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_small_512x512_160k_ade20k_ss/iter_160000.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |  512×512   |   83M   | 1137G |   52.3    |   53.0    | [PPMA-Base](./segmentation/configs/upernet_ppma_base_512x512_160k_ade20k_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_512x512_160k_ade20k_ss.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_base_512x512_160k_ade20k_ss/iter_160000.pth) |
 
-| Backbone | Pretrained Model| Crop Size |Lr Schd| mIoU|mIoU (ms+flip)| #Params | Download |Config| Log |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| TransNeXt-Tiny | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-tiny-224-1k/resolve/main/transnext_tiny_224_1k.pth?download=true)|512x512|160K|51.1|51.5/51.7|59M|[model](https://huggingface.co/DaiShiResearch/upernet-transnext-tiny-ade/resolve/main/upernet_transnext_tiny_512x512_160k_ade20k_in1k.pth?download=true)|[config](/segmentation/upernet/configs/upernet_transnext_tiny_512x512_160k_ade20k_ss.py)|[log](https://huggingface.co/DaiShiResearch/upernet-transnext-tiny-ade/blob/main/upernet_transnext_tiny_512x512_160k_ade20k_ss.log.json)|
-| TransNeXt-Small | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-small-224-1k/resolve/main/transnext_small_224_1k.pth?download=true)|512x512|160K|52.2|52.5/52.8|80M|[model](https://huggingface.co/DaiShiResearch/upernet-transnext-small-ade/resolve/main/upernet_transnext_small_512x512_160k_ade20k_in1k.pth?download=true)|[config](/segmentation/upernet/configs/upernet_transnext_small_512x512_160k_ade20k_ss.py)|[log](https://huggingface.co/DaiShiResearch/upernet-transnext-small-ade/blob/main/upernet_transnext_small_512x512_160k_ade20k_ss.log.json)|
-| TransNeXt-Base | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-base-224-1k/resolve/main/transnext_base_224_1k.pth?download=true)|512x512|160K|53.0|53.5/53.7|121M|[model](https://huggingface.co/DaiShiResearch/upernet-transnext-base-ade/resolve/main/upernet_transnext_base_512x512_160k_ade20k_in1k.pth?download=true)|[config](/segmentation/upernet/configs/upernet_transnext_base_512x512_160k_ade20k_ss.py)|[log](https://huggingface.co/DaiShiResearch/upernet-transnext-base-ade/blob/main/upernet_transnext_base_512x512_160k_ade20k_ss.log.json)|
-* In the context of multi-scale evaluation, TransNeXt reports test results under two distinct scenarios: **interpolation** and **extrapolation** of relative position bias. 
 
-**ADE20K semantic segmentation results using the Mask2Former method:**
 
-| Backbone | Pretrained Model| Crop Size |Lr Schd| mIoU| #Params | Download |Config| Log |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| TransNeXt-Tiny | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-tiny-224-1k/resolve/main/transnext_tiny_224_1k.pth?download=true)|512x512|160K|53.4|47.5M|[model](https://huggingface.co/DaiShiResearch/mask2former-transnext-tiny-ade/resolve/main/mask2former_transnext_tiny_512x512_160k_ade20k_in1k.pth?download=true)|[config](/segmentation/mask2former/configs/mask2former_transnext_tiny_160k_ade20k-512x512.py)|[log](https://huggingface.co/DaiShiResearch/mask2former-transnext-tiny-ade/raw/main/mask2former_transnext_tiny_512x512_160k_ade20k_in1k.json)|
-| TransNeXt-Small | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-small-224-1k/resolve/main/transnext_small_224_1k.pth?download=true)|512x512|160K|54.1|69.0M|[model](https://huggingface.co/DaiShiResearch/mask2former-transnext-small-ade/resolve/main/mask2former_transnext_small_512x512_160k_ade20k_in1k.pth?download=true)|[config](/segmentation/mask2former/configs/mask2former_transnext_small_160k_ade20k-512x512.py)|[log](https://huggingface.co/DaiShiResearch/mask2former-transnext-small-ade/raw/main/mask2former_transnext_small_512x512_160k_ade20k_in1k.json)|
-| TransNeXt-Base | [ImageNet-1K](https://huggingface.co/DaiShiResearch/transnext-base-224-1k/resolve/main/transnext_base_224_1k.pth?download=true)|512x512|160K|54.7|109M|[model](https://huggingface.co/DaiShiResearch/mask2former-transnext-base-ade/resolve/main/mask2former_transnext_base_512x512_160k_ade20k_in1k.pth?download=true)|[config](/segmentation/mask2former/configs/mask2former_transnext_base_160k_ade20k-512x512.py)|[log](https://huggingface.co/DaiShiResearch/mask2former-transnext-base-ade/raw/main/mask2former_transnext_base_512x512_160k_ade20k_in1k.json)|
+- #### Semantic Segmentation Results on Cityscapes with UPerNet Method (batch size=8)
 
-## Installation
+|  Backbone  |                       Pretrained Model                       | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         |                          Checkpoint                          |
+| :--------: | :----------------------------------------------------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| PPMA-Tiny  | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) | 1024×1024  |   43M   | 983G  |   82.7    |   83.5    | [PPMA-Tiny](./segmentation/configs/cityscapes/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.log) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss/iter_160000.pth) |
+| PPMA-Small | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) | 1024×1024  |   56M   | 984G  |   83.7    |   84.0    | [PPMA-Small](./segmentation/configs/cityscapes/upernet_ppma_small_1024x1024_160k_cityscapes_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_1024x1024_160k_cityscapes_ss.log) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_small_1024x1024_160k_cityscapes_ss/iter_160000.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) | 1024×1024  |   83M   | 1137G |   83.9    |   84.3    | [PPMA-Base](./segmentation/configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_1024x1024_160k_cityscapes_ss.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_base_1024x1024_160k_cityscapes_ss/iter_160000.pth) |
 
-### CUDA Implementation
 
-Before installing the CUDA extension, please ensure that the CUDA version on your machine (checked with `nvcc -V`)
-matches the CUDA version of PyTorch.
 
-    cd swattention_extension
-    pip install .
 
-## Acknowledgement
-* *This project is built using [timm](https://github.com/huggingface/pytorch-image-models), [MMDetection](https://github.com/open-mmlab/mmdetection), [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) libraries, and [PVT](https://github.com/whai362/PVT), [DeiT](https://github.com/facebookresearch/deit) repositories. We express our heartfelt gratitude for the contributions of these open-source projects.*
+
+- #### Mask Visualization
+
+![Mask_visualization](./figures/Mask_visualization.png)
+
+
+
+- #### Masked Attention Visualization
+
+![MaskedAttentionMap](./figures/MaskedAttentionMap.png)
+
+![atten_map_gif](./figures/ILSVRC2012_val_00018280_atten_map.gif)
+
+
+
+
+
+## 🚀 Quick Start
+
+#### 1. Requirements
+
+```
+conda create -n ppma python=3.8.20 -y
+conda activate ppma
+chmod +x install_requirements.sh 
+./install_requirements.sh 
+```
+
+
+
+#### 2. Data Preparation
+
+* ImageNet is an image database organized according to the WordNet hierarchy. Download and extract ImageNet train and val images from http://image-net.org/. Organize the data into the following directory structure:
+
+  ```
+  imagenet/
+  ├── train/
+  │   ├── n01440764/  (Example synset ID)
+  │   │   ├── image1.JPEG
+  │   │   ├── image2.JPEG
+  │   │   └── ...
+  │   ├── n01443537/  (Another synset ID)
+  │   │   └── ...
+  │   └── ...
+  └── val/
+      ├── n01440764/  (Example synset ID)
+      │   ├── image1.JPEG
+      │   └── ...
+      └── ...
+  ```
+
+* COCO is a large-scale object detection, segmentation, and captioning dataset. Please visit http://cocodataset.org/ for more information, including for the data, paper, and tutorials. [COCO API](https://github.com/cocodataset/cocoapi) also provides a concise and efficient way to process the data.
+
+* ADE20K is composed of more than 27K images from the SUN and Places databases. Please visit https://ade20k.csail.mit.edu/ for more information and see the [GitHub Repository](https://github.com/CSAILVision/ADE20K) for an overview of how to access and explore ADE20K.
+
+
+
+#### 3. Training on ImageNet-1K
+
+```
+cd classification/
+
+# PPMA-Tiny
+torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_T --data_path <path-to-imagenet> --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_T_202505010000
+
+# PPMA-Small
+torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_S --data_path <path-to-imagenet> --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_S_202505010000
+
+# PPMA-Base
+torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --model PPMAViT_B --data_path <path-to-imagenet> --num_workers 16 --batch_size 128 --drop_path 0.05 --epoch 300 --dist_eval --output_dir ./exp/PPMAViT_B_202505010000
+```
+
+
+
+#### 4. Training on COCO2017
+
+```
+cd detection/
+
+# 1x schedule
+bash dist_train.sh ./configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py 8
+bash dist_train.sh ./configs/mask_rcnn_ppma_small_fpn_1x_coco.py 8
+bash dist_train.sh ./configs/mask_rcnn_ppma_base_fpn_1x_coco.py 8
+
+# 3x schedule
+bash dist_train.sh ./configs/mask_rcnn_ppma_tiny_fpn_3x_coco.py 8
+bash dist_train.sh ./configs/mask_rcnn_ppma_small_fpn_3x_coco.py 8
+bash dist_train.sh ./configs/mask_rcnn_ppma_base_fpn_3x_coco.py 8
+```
+
+
+
+##### Evaluation on COCO2017
+
+```
+cd detection/
+
+# 1x schedule
+bash dist_test.sh ./configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py <checkpoint-path> 8 --eval bbox segm
+bash dist_test.sh ./configs/mask_rcnn_ppma_small_fpn_1x_coco.py <checkpoint-path> 8 --eval bbox segm
+bash dist_test.sh ./configs/mask_rcnn_ppma_base_fpn_1x_coco.py <checkpoint-path> 8 --eval bbox segm
+
+# 3x schedule
+bash dist_test.sh ./configs/mask_rcnn_ppma_tiny_fpn_3x_coco.py <checkpoint-path> 8 --eval bbox segm
+bash dist_test.sh ./configs/mask_rcnn_ppma_small_fpn_3x_coco.py <checkpoint-path> 8 --eval bbox segm
+bash dist_test.sh ./configs/mask_rcnn_ppma_base_fpn_3x_coco.py <checkpoint-path> 8 --eval bbox segm
+```
+
+
+
+#### 5. Training on ADE20K
+
+```
+cd segmentation/
+
+bash dist_train.sh ./configs/upernet_ppma_tiny_512x512_160k_ade20k_ss.py 8
+bash dist_train.sh ./configs/upernet_ppma_small_512x512_160k_ade20k_ss.py 8
+bash dist_train.sh ./configs/upernet_ppma_base_512x512_160k_ade20k_ss.py 8
+```
+
+
+
+#####  Evaluation on ADE20K
+
+```
+cd segmentation/
+
+# Single-scale Evaluation
+bash dist_test.sh ./configs/upernet_ppma_tiny_512x512_160k_ade20k_ss.py <checkpoint-path> 8 --eval mIoU
+bash dist_test.sh ./configs/upernet_ppma_small_512x512_160k_ade20k_ss.py <checkpoint-path> 8 --eval mIoU
+bash dist_test.sh ./configs/upernet_ppma_base_512x512_160k_ade20k_ss.py <checkpoint-path> 8 --eval mIoU
+
+# Multi-scale Evaluation
+bash dist_test.sh ./configs/upernet_ppma_tiny_512x512_160k_ade20k_ss.py <checkpoint-path> 8 --eval mIoU --aug-test
+bash dist_test.sh ./configs/upernet_ppma_small_512x512_160k_ade20k_ss.py <checkpoint-path> 8 --eval mIoU --aug-test
+bash dist_test.sh ./configs/upernet_ppma_base_512x512_160k_ade20k_ss.py <checkpoint-path> 8 --eval mIoU --aug-test
+```
+
+
+
+#### 6. Training on Cityscapes
+
+```
+cd segmentation/
+bash dist_train.sh ./configs/cityscapes/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.py 8
+bash dist_train.sh ./configs/cityscapes/upernet_ppma_small_1024x1024_160k_cityscapes_ss.py 8
+bash dist_train.sh ./configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py 8
+```
+
+
+
+#####  Evaluation on Cityscapes
+
+```
+cd segmentation/
+
+# Single-scale Evaluation
+bash dist_test.sh ./configs/cityscapes/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.py <checkpoint-path> 8 --eval mIoU
+bash dist_test.sh ./configs/cityscapes/upernet_ppma_small_1024x1024_160k_cityscapes_ss.py <checkpoint-path> 8 --eval mIoU
+bash dist_test.sh ./configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py <checkpoint-path> 8 --eval mIoU
+
+# Multi-scale Evaluation
+bash dist_test.sh ./configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py <checkpoint-path> 8 --eval mIoU --aug-test
+bash dist_test.sh ./configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py <checkpoint-path> 8 --eval mIoU --aug-test
+bash dist_test.sh ./configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py <checkpoint-path> 8 --eval mIoU --aug-test
+```
+
+
+
+
+
+## 💌 Acknowledgement
+
+* *This project is built using [timm](https://github.com/huggingface/pytorch-image-models), [MMDetection](https://github.com/open-mmlab/mmdetection), [MMSegmentation](https://github.com/open-mmlab/mmsegmentation) libraries, and [DeiT](https://github.com/facebookresearch/deit), [RMT](https://github.com/qhfan/RMT), [TransNeXt](https://github.com/DaiShiResearch/TransNeXt/tree/main) repositories. We express our heartfelt gratitude for the contributions of these open-source projects.*
 * *We also want to express our gratitude for some articles introducing this project and derivative implementations based on this project.*
 
-## License
+
+
+
+
+## 📄 License
 
 This project is released under the Apache 2.0 license. Please see the [LICENSE](/LICENSE) file for more information.
 
-## Citation
 
-If you find our work helpful, please consider citing the following bibtex. We would greatly appreciate a star for this
-project.
 
-    @InProceedings{shi2023transnext,
-      author    = {Dai Shi},
-      title     = {TransNeXt: Robust Foveal Visual Perception for Vision Transformers},
-      booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-      month     = {June},
-      year      = {2024},
-      pages     = {17773-17783}
-    }
+
+
+## 🔗 Citation
+
+If you use PPMA in your research, please consider the following BibTeX entry and giving us a star:
+```BibTeX
+@article{zhao2025polylinepathmaskedattention,
+         title={Polyline Path Masked Attention for Vision Transformer}, 
+         author={Zhongchen Zhao and Chaodong Xiao and Hui Lin and Qi Xie and Lei Zhang and Deyu Meng},
+         journal={arXiv preprint arXiv:2506.15940},
+         year={2025}, 
+}
+```
