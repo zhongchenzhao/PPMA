@@ -4,8 +4,7 @@
 
 **🤗 Don’t hesitate to give me a ⭐️, if you are interested in this project!**
 
-[![arXiv](https://img.shields.io/badge/arXiv%20paper-2506.15940-b31b1b.svg)](https://arxiv.org/pdf/2506.15940)
-[![Hugging Face Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-blue)](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints)
+[![arXiv](https://img.shields.io/badge/arXiv%20paper-2506.15940-b31b1b.svg)](https://arxiv.org/pdf/2506.15940) [![Hugging Face Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-blue)](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints)
 
 
 
@@ -57,9 +56,9 @@ Extensive experiments on standard benchmarks, including image classification, ob
 
 |   Model    | #Params | FLOPs |  Acc  |                         Training log                         |                          Checkpoint                          |
 | :--------: | :-----: | :---: | :---: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| PPMA-Tiny  |   14M   | 2.7G  | 82.6% | [PPMA-Tiny](./training_logs/classification/ppma_tiny_log.txt) | [PPMA-Tiny](https://drive.google.com/file/d/19KoW5dEtu9EmYIYkcD92SMZON6dHbCOr/view?usp=sharing) |
-| PPMA-Small |   27M   | 4.9G  | 84.2% | [PPMA-Small](./training_logs/classification/ppma_small_log.txt) | [PPMA-Small](https://drive.google.com/file/d/1E_0u7kd4myZzsfybLCJNLeJ0PEbF86CV/view?usp=sharing) |
-| PPMA-Base  |   54M   | 10.6G | 85.0% | [PPMA-Base](./training_logs/classification/ppma_base_log.txt) | [PPMA-Base](https://drive.google.com/file/d/1uVdCRNJU-Uw_xhpqztI4U_cnaP1r9YR-/view?usp=sharing) |
+| PPMA-Tiny  |   14M   | 2.7G  | 82.6% | [PPMA-Tiny](./training_logs/classification/ppma_tiny_log.txt) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) |
+| PPMA-Small |   27M   | 4.9G  | 84.2% | [PPMA-Small](./training_logs/classification/ppma_small_log.txt) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) |
+| PPMA-Base  |   54M   | 10.6G | 85.0% | [PPMA-Base](./training_logs/classification/ppma_base_log.txt) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |
 
 
 
@@ -67,9 +66,9 @@ Extensive experiments on standard benchmarks, including image classification, ob
 
 |  Backbone  |                       Pretrained Model                       | #Params | FLOPs | box mAP | mask mAP |                            Config                            |                         Training log                         |                          Checkpoint                          |
 | :--------: | :----------------------------------------------------------: | :-----: | :---: | :-----: | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| PPMA-Tiny  | [PPMA-Tiny](https://drive.google.com/file/d/19KoW5dEtu9EmYIYkcD92SMZON6dHbCOr/view?usp=sharing) |   33M   | 218G  |  47.1   |   42.4   | [PPMA-Tiny](./detection/configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py) | [PPMA-Tiny](./training_logs/detection/mask_rcnn_ppma_tiny_fpn_1x_coco.log) | [PPMA-Tiny](https://drive.google.com/drive/folders/14M4WoBfNdk9GrA1eqKPNQWGRQGZmyzK5?usp=sharing) |
-| PPMA-Small | [PPMA-Small](https://drive.google.com/file/d/1E_0u7kd4myZzsfybLCJNLeJ0PEbF86CV/view?usp=sharing) |   46M   | 263G  |  49.2   |   43.8   | [PPMA-Small](./detection/configs/mask_rcnn_ppma_small_fpn_1x_coco.py) | [PPMA-Small](./training_logs/detection/mask_rcnn_ppma_small_fpn_1x_coco.log) | [PPMA-Small](https://drive.google.com/drive/folders/1C9LhtdeAOOBX1KPJVP-Z2OCBu6GCsPVu?usp=sharing) |
-| PPMA-Base  | [PPMA-Base](https://drive.google.com/file/d/1uVdCRNJU-Uw_xhpqztI4U_cnaP1r9YR-/view?usp=sharing) |   73M   | 374G  |  51.1   |   45.5   | [PPMA-Base](./detection/configs/mask_rcnn_ppma_base_fpn_1x_coco.py) | [PPMA-Base](./training_logs/detection/mask_rcnn_ppma_base_fpn_1x_coco.log) | [PPMA-Base](https://drive.google.com/drive/folders/17poA3CA-3GXHCOhsRIbzZrVd8ahglXIw?usp=sharing) |
+| PPMA-Tiny  | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) |   33M   | 218G  |  47.1   |   42.4   | [PPMA-Tiny](./detection/configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py) | [PPMA-Tiny](./training_logs/detection/mask_rcnn_ppma_tiny_fpn_1x_coco.log) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_tiny_fpn_1x_coco/epoch_12.pth) |
+| PPMA-Small | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) |   46M   | 263G  |  49.2   |   43.8   | [PPMA-Small](./detection/configs/mask_rcnn_ppma_small_fpn_1x_coco.py) | [PPMA-Small](./training_logs/detection/mask_rcnn_ppma_small_fpn_1x_coco.log) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_small_fpn_1x_coco/epoch_12.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |   73M   | 374G  |  51.1   |   45.5   | [PPMA-Base](./detection/configs/mask_rcnn_ppma_base_fpn_1x_coco.py) | [PPMA-Base](./training_logs/detection/mask_rcnn_ppma_base_fpn_1x_coco.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_base_fpn_1x_coco/epoch_12.pth) |
 
 
 
@@ -77,9 +76,9 @@ Extensive experiments on standard benchmarks, including image classification, ob
 
 |  Backbone  |                       Pretrained Model                       | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         |                          Checkpoint                          |
 | :--------: | :----------------------------------------------------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| PPMA-Tiny  | [PPMA-Tiny](https://drive.google.com/file/d/19KoW5dEtu9EmYIYkcD92SMZON6dHbCOr/view?usp=sharing) |  512×512   |   43M   | 983G  |   48.7    |   49.1    | [PPMA-Tiny](./segmentation/configs/upernet_ppma_tiny_512x512_160k_ade20k_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_512x512_160k_ade20k_ss.log) | [PPMA-Tiny](https://drive.google.com/drive/folders/1dHiIywhaUJxnv9WvbTw5egOvhnBwjJvx?usp=sharing) |
-| PPMA-Small | [PPMA-Small](https://drive.google.com/file/d/1E_0u7kd4myZzsfybLCJNLeJ0PEbF86CV/view?usp=sharing) |  512×512   |   56M   | 984G  |   51.1    |   52.0    | [PPMA-Small](./segmentation/configs/upernet_ppma_small_512x512_160k_ade20k_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_512x512_160k_ade20k_ss.log) | [PPMA-Small](https://drive.google.com/drive/folders/1CHcb0H5jaK95IHiDCos9SXuxXNeNrfIL?usp=sharing) |
-| PPMA-Base  | [PPMA-Base](https://drive.google.com/file/d/1uVdCRNJU-Uw_xhpqztI4U_cnaP1r9YR-/view?usp=sharing) |  512×512   |   83M   | 1137G |   52.3    |   53.0    | [PPMA-Base](./segmentation/configs/upernet_ppma_base_512x512_160k_ade20k_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_512x512_160k_ade20k_ss.log) | [PPMA-Base](https://drive.google.com/drive/folders/11ez7E15PSssS2q8pqKyEioLsisJnP-AD?usp=sharing) |
+| PPMA-Tiny  | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) |  512×512   |   43M   | 983G  |   48.7    |   49.1    | [PPMA-Tiny](./segmentation/configs/upernet_ppma_tiny_512x512_160k_ade20k_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_512x512_160k_ade20k_ss.log) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_tiny_512x512_160k_ade20k_ss/iter_160000.pth) |
+| PPMA-Small | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) |  512×512   |   56M   | 984G  |   51.1    |   52.0    | [PPMA-Small](./segmentation/configs/upernet_ppma_small_512x512_160k_ade20k_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_512x512_160k_ade20k_ss.log) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_small_512x512_160k_ade20k_ss/iter_160000.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |  512×512   |   83M   | 1137G |   52.3    |   53.0    | [PPMA-Base](./segmentation/configs/upernet_ppma_base_512x512_160k_ade20k_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_512x512_160k_ade20k_ss.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_base_512x512_160k_ade20k_ss/iter_160000.pth) |
 
 
 
@@ -87,25 +86,25 @@ Extensive experiments on standard benchmarks, including image classification, ob
 
 |  Backbone  |                       Pretrained Model                       | Input Size | #Params | FLOPs | mIoU (SS) | mIoU (MS) |                            Config                            |                         Training log                         |                          Checkpoint                          |
 | :--------: | :----------------------------------------------------------: | :--------: | :-----: | :---: | :-------: | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| PPMA-Tiny  | [PPMA-Tiny](https://drive.google.com/file/d/19KoW5dEtu9EmYIYkcD92SMZON6dHbCOr/view?usp=sharing) | 1024×1024  |   43M   | 983G  |   82.7    |   83.5    | [PPMA-Tiny](./segmentation/configs/cityscapes/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.log) | [PPMA-Tiny](https://drive.google.com/drive/folders/1V8jtFUXE9W5gr4JjUs6q7OHI92Z7Std3?usp=sharing) |
-| PPMA-Small | [PPMA-Small](https://drive.google.com/file/d/1E_0u7kd4myZzsfybLCJNLeJ0PEbF86CV/view?usp=sharing) | 1024×1024  |   56M   | 984G  |   83.7    |   84.0    | [PPMA-Small](./segmentation/configs/cityscapes/upernet_ppma_small_1024x1024_160k_cityscapes_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_1024x1024_160k_cityscapes_ss.log) | [PPMA-Small](https://drive.google.com/drive/folders/1xqSvtIMceH5MRFIMH1oHQ2H-9Pk5gqUX?usp=sharing) |
-| PPMA-Base  | [PPMA-Base](https://drive.google.com/file/d/1uVdCRNJU-Uw_xhpqztI4U_cnaP1r9YR-/view?usp=sharing) | 1024×1024  |   83M   | 1137G |   83.9    |   84.3    | [PPMA-Base](./segmentation/configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_1024x1024_160k_cityscapes_ss.log) | [PPMA-Base](https://drive.google.com/drive/folders/1ok9ZKI5ap2iG7c0oxh9cytYo5kovyNhv?usp=sharing) |
+| PPMA-Tiny  | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_T_202502251000/best.pth) | 1024×1024  |   43M   | 983G  |   82.7    |   83.5    | [PPMA-Tiny](./segmentation/configs/cityscapes/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.py) | [PPMA-Tiny](./training_logs/segmentation/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss.log) | [PPMA-Tiny](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_tiny_1024x1024_160k_cityscapes_ss/iter_160000.pth) |
+| PPMA-Small | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_S_202504021000/best.pth) | 1024×1024  |   56M   | 984G  |   83.7    |   84.0    | [PPMA-Small](./segmentation/configs/cityscapes/upernet_ppma_small_1024x1024_160k_cityscapes_ss.py) | [PPMA-Small](./training_logs/segmentation/upernet_ppma_small_1024x1024_160k_cityscapes_ss.log) | [PPMA-Small](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_small_1024x1024_160k_cityscapes_ss/iter_160000.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) | 1024×1024  |   83M   | 1137G |   83.9    |   84.3    | [PPMA-Base](./segmentation/configs/cityscapes/upernet_ppma_base_1024x1024_160k_cityscapes_ss.py) | [PPMA-Base](./training_logs/segmentation/upernet_ppma_base_1024x1024_160k_cityscapes_ss.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/segmentation/upernet_ppma_base_1024x1024_160k_cityscapes_ss/iter_160000.pth) |
+
+
 
 
 
 - #### Mask Visualization
 
-
-
-![contribution](./figures/Mask_visualization.png)
+![Mask_visualization](./figures/Mask_visualization.png)
 
 
 
 - #### Masked Attention Visualization
 
-![contribution](./figures/MaskedAttentionMap.png)
+![MaskedAttentionMap](./figures/MaskedAttentionMap.png)
 
-![contribution](./figures/ILSVRC2012_val_00018280_atten_map.gif)
+![atten_map_gif](./figures/ILSVRC2012_val_00018280_atten_map.gif)
 
 
 
