@@ -613,7 +613,7 @@ class PatchEmbed(nn.Module):
 
 
 
-class Mamba2TransformerDouble(nn.Module):
+class PPMAViTsDouble(nn.Module):
     def __init__(self, in_chans=3, num_classes=1000,
                  embed_dims=[96, 192, 384, 768], depths=[2, 2, 6, 2], num_heads=[3, 6, 12, 24],
                  init_values=[1, 1, 1, 1], heads_ranges=[3, 3, 3, 3], mlp_ratios=[3, 3, 3, 3], drop_path_rate=0.1,
@@ -708,7 +708,7 @@ class Mamba2TransformerDouble(nn.Module):
 
 
 
-class Backbone_Mamba2TransformerDouble(Mamba2TransformerDouble):
+class Backbone_PPMAViTDouble(PPMAViTsDouble):
     def __init__(self, out_indices=(0, 1, 2, 3), pretrained=None, norm_layer="ln", **kwargs):
         super().__init__(**kwargs)
         self.channel_first = (norm_layer.lower() in ["bn", "ln2d"])
@@ -786,7 +786,7 @@ class Backbone_Mamba2TransformerDouble(Mamba2TransformerDouble):
 
 
 @BACKBONES.register_module()
-class ppma_tiny(Backbone_Mamba2TransformerDouble):
+class ppma_tiny(Backbone_PPMAViTDouble):
     def __init__(self, **kwargs):
         super().__init__(
         out_indices=(0, 1, 2, 3),
@@ -805,7 +805,7 @@ class ppma_tiny(Backbone_Mamba2TransformerDouble):
 
 
 @BACKBONES.register_module()
-class ppma_small(Backbone_Mamba2TransformerDouble):
+class ppma_small(Backbone_PPMAViTDouble):
     def __init__(self, **kwargs):
         super().__init__(
         out_indices=(0, 1, 2, 3),
@@ -824,7 +824,7 @@ class ppma_small(Backbone_Mamba2TransformerDouble):
 
 
 @BACKBONES.register_module()
-class ppma_base(Backbone_Mamba2TransformerDouble):
+class ppma_base(Backbone_PPMAViTDouble):
     def __init__(self, **kwargs):
         super().__init__(
         out_indices=(0, 1, 2, 3),
