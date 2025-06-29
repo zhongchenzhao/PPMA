@@ -48,9 +48,7 @@ Extensive experiments on standard benchmarks, including image classification, ob
 
 ## 📊 Results
 
-[![Checkpoint](https://img.shields.io/badge/Checkpoint-Google%20Drive-34A853?logo=google-drive&logoColor=white)](https://drive.google.com/drive/folders/1rkUrYuCc_t8GL4MLuoR9zqy-ztplaUan?usp=sharing)
-
-
+[![Hugging Face Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-blue)](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints)
 
 - #### Image Classification Results on ImageNet-1K 224x224
 
