@@ -187,6 +187,7 @@ bash dist_train.sh ./configs/mask_rcnn_ppma_base_fpn_3x_coco.py 8
 
 ```
 cd detection/
+# change <data_root> in "detection/configs/_base_/datasets/coco_instance.py"
 
 # 1x schedule
 bash dist_test.sh ./configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py <checkpoint-path> 8 --eval bbox segm
