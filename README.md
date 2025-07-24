@@ -207,6 +207,8 @@ bash dist_test.sh ./configs/mask_rcnn_ppma_base_fpn_3x_coco.py <checkpoint-path>
 
 #### 5. Training on ADE20K
 
+change <data_root> in `segmentation/configs/_base_/datasets/ade20k.py`
+
 ```
 cd segmentation/
 
@@ -236,6 +238,8 @@ bash dist_test.sh ./configs/upernet_ppma_base_512x512_160k_ade20k_ss.py <checkpo
 
 
 #### 6. Training on Cityscapes
+
+change <data_root> in `segmentation/configs/_base_/datasets/cityscapes_1024x1024_repeat.py`
 
 ```
 cd segmentation/
