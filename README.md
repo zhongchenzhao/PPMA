@@ -167,6 +167,10 @@ torchrun --nproc_per_node=8 --master_port=29501 main.py --warmup_epochs 5 --mode
 
 #### 4. Training on COCO2017
 
+
+change <data_root> in `detection/configs/_base_/datasets/coco_instance.py`
+
+
 ```
 cd detection/
 
@@ -187,7 +191,6 @@ bash dist_train.sh ./configs/mask_rcnn_ppma_base_fpn_3x_coco.py 8
 
 ```
 cd detection/
-# change <data_root> in "detection/configs/_base_/datasets/coco_instance.py"
 
 # 1x schedule
 bash dist_test.sh ./configs/mask_rcnn_ppma_tiny_fpn_1x_coco.py <checkpoint-path> 8 --eval bbox segm
