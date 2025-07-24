@@ -1,6 +1,5 @@
 # dataset settings
 dataset_type = 'ADE20KDataset'
-# data_root = 'data/ade/ADEChallengeData2016'
 data_root = '/mnt/nvme_data/zzc/datasets/ADE20K'
 
 img_norm_cfg = dict(
