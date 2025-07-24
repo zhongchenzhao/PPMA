@@ -6,8 +6,8 @@ from https://github.com/yunxiangfu2001/SegMAN/tree/main/segmentation/local_confi
 
 # dataset settings
 dataset_type = 'CityscapesDataset'
-# data_root = 'data/cityscapes/'
-data_root = '/mnt/nvme_data/zzc/datasets/cityscapes/'
+data_root = 'data/cityscapes/'
+
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 crop_size = (1024, 1024)
