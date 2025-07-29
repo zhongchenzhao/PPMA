@@ -28,8 +28,6 @@ import os
 
 # import models
 from models.PPMA import PPMAViT_T, PPMAViT_S, PPMAViT_B
-from models.PPMA_wo_RoPE import PPMAViT_wo_RoPE_T
-from models.PPMA_only_ppmva import PPMVAViT_T
 from models.RMT import RMT_T, RMT_S, RMT_B
 
 from utils_common import save_codes, save_python_command
