@@ -43,8 +43,6 @@ archs = {
     'RMT_T': RMT_T,
     'RMT_S': RMT_S,
     'RMT_B': RMT_B,
-    'PPMVAViT_T': PPMVAViT_T,
-    'PPMAViT_wo_RoPE_T': PPMAViT_wo_RoPE_T,
 }
 
 
