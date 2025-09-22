@@ -10,7 +10,7 @@
 
 ## 📌 Updates
 * ***2025.09.22*** Our paper is accepted by NeurIPS 2025 spotlight (top 3%)! 🎉🎉
-* ***2025.09.22*** We have uploaded a detailed PPT explaining the principles of Mamba and our work to [Slide](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)!
+* ***2025.09.22*** We have uploaded a detailed [Slide](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf) explaining the principles of Mamba and our work!
 * ***2025.06.19*** We have submitted the preprint of our paper to [Arxiv](https://arxiv.org/pdf/2506.15940)!
 * ***2025.06.15*** We have released the complete pre-trained model weights to [Hugging Face](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints) !
 *  ***2025.06.12*** We have released the complete training and inference code and [training logs](./training_logs)!
