@@ -8,6 +8,11 @@
 
 
 [![PPT](https://img.shields.io/badge/PPT%20From-Mamba-to-PPMA-blue)](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
+[![PPT](https://img.shields.io/badge/PPT%20PPMA-green)](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
+[![PPT](https://img.shields.io/badge/PPT%20PPMA-purple)](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
+[![PPT](https://img.shields.io/badge/PPT%20PPMA-red)](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
+[![PPT](https://img.shields.io/badge/PPT%20PPMA-orange)](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
+
 
 
 ## 📌 Updates
