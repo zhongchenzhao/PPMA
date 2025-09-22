@@ -6,11 +6,9 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv%20paper-2506.15940-b31b1b.svg)](https://arxiv.org/pdf/2506.15940) [![Hugging Face Checkpoints](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Checkpoints-blue)](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints) [![PPT PPMA](https://img.shields.io/badge/%F0%9F%A4%97%20PPT%20PPMA-blue)](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
 
-[📊 PPT PPMA](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
 
-[![PPT](https://img.shields.io/badge/PPT%20PPMA-blue)](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
+[![PPT](https://img.shields.io/badge/PPT%20From-Mamba-to-PPMA-blue)](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
 
-[📊 PPT PPMA](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf)
 
 ## 📌 Updates
 * ***2025.09.22*** Our paper is accepted by NeurIPS 2025 spotlight (top 3%)! 🎉🎉
