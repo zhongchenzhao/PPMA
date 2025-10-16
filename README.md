@@ -9,7 +9,7 @@
 
 [![Poster](https://img.shields.io/badge/PPT-From%20Mamba%20to%20PPMA-orange?style=flat)](https://github.com/zhongchenzhao/PPMA/blob/main/2025NeurIPS_PPMA_poster.png)
 
-[![PPT](https://img.shields.io/badge/%20PPMA-orange?style=flat)](https://github.com/zhongchenzhao/PPMA/blob/main/2025NeurIPS_PPMA_poster.png)
+
 
 ## 📌 Updates
 * ***2025.09.18*** Our paper is accepted by NeurIPS 2025 spotlight (top 3%)! 🎉🎉
