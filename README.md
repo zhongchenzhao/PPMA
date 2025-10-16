@@ -11,7 +11,7 @@
 
 
 ## 📌 Updates
-* ***2025.09.18*** Our paper is accepted by NeurIPS 2025 spotlight (top 3%)! 🎉🎉
+* ***2025.09.18*** Our paper is accepted at NeurIPS 2025 as a spotlight (top 3%)! 🎉🎉
 * ***2025.10.16*** We have uploaded a [poster](https://github.com/zhongchenzhao/PPMA/blob/main/2025NeurIPS_PPMA_poster.png) for the NeurIPS 2025 conference.
 * ***2025.09.22*** We have uploaded a detailed [PPT](https://github.com/zhongchenzhao/PPMA/blob/main/Slide_From%20Mamba%20to%20PPMA%20(PPT).pdf) explaining the principles of Mamba and our work!
 * ***2025.06.19*** We have submitted the preprint of our paper to [Arxiv](https://arxiv.org/pdf/2506.15940)!
