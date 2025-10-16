@@ -1,6 +1,6 @@
 # Polyline Path Masked Attention for Vision Transformer
 
-✨Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA)** (NeurIPS 2025 spotlight)
+✨Official codes for **Polyline Path Masked Attention for Vision Transformer (PPMA)** (**NeurIPS 2025 Spotlight**)
 
 **🤗 Don’t hesitate to give me a ⭐️, if you are interested in this project!**
 
