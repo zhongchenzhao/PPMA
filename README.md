@@ -77,7 +77,7 @@ Extensive experiments on standard benchmarks, including image classification, ob
 
 |  Backbone  |                       Pretrained Model                       | #Params | FLOPs | box mAP | mask mAP |                            Config                            |                         Training log                         |                          Checkpoint                          |
 | :--------: | :----------------------------------------------------------: | :-----: | :---: | :-----: | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |   73M   | 374G  |  52.6   |   46.3   | [PPMA-Base](./detection/configs/mask_rcnn_ppma_base_fpn_3x_coco.py) | [PPMA-Base](./training_logs/detection/mask_rcnn_ppma_base_fpn_3x_coco.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/tree/main/checkpoints/detection/mask_rcnn_ppma_base_fpn_3x_coco/epoch_36.pth) |
+| PPMA-Base  | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/classification/PPMA_B_202504101400/best.pth) |   73M   | 374G  |  52.6   |   46.3   | [PPMA-Base](./detection/configs/mask_rcnn_ppma_base_fpn_3x_coco.py) | [PPMA-Base](./training_logs/detection/mask_rcnn_ppma_base_fpn_3x_coco.log) | [PPMA-Base](https://huggingface.co/ZhongchenZhao/PPMA/blob/main/checkpoints/detection/mask_rcnn_ppma_base_fpn_3x_coco/epoch_36.pth) |
 
 
 
