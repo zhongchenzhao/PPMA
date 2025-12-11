@@ -11,17 +11,17 @@ model = dict(
     backbone=dict(
         pretrained="../checkpoints/classification/PPMA_B_202504101400/best.pth",
         type='ppma_base',
-        num_classes=150,
+        num_classes=19,
         embed_dims=[80, 160, 320, 512],                 # base
 
     ),
     decode_head=dict(
         in_channels=[80, 160, 320, 512],                 # base
-        num_classes=150
+        num_classes=19
     ),
     auxiliary_head=dict(
         in_channels=320,
-        num_classes=150
+        num_classes=19
     ),
     test_cfg=dict(mode='slide', crop_size=crop_size, stride=(341, 341)),
 )
@@ -43,3 +43,4 @@ lr_config = dict(_delete_=True, policy='poly',
 data=dict(samples_per_gpu=1)            # total batch size 8
 # data=dict(samples_per_gpu=4)            # models are trained on 4 GPUs with 4 images per GPU
 evaluation = dict(interval=4000, metric='mIoU')     # cityscapes
+
