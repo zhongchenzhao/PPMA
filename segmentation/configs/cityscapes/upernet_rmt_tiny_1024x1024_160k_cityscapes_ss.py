@@ -11,17 +11,17 @@ model = dict(
     backbone=dict(
         pretrained="../checkpoints/classification/download/RMT-T.pth",
         type='rmt_tiny',
-        num_classes=150,
+        num_classes=19,
         embed_dims=[64, 128, 256, 512],                     # tiny
 
     ),
     decode_head=dict(
         in_channels=[64, 128, 256, 512],
-        num_classes=150
+        num_classes=19
     ),
     auxiliary_head=dict(
         in_channels=256,
-        num_classes=150
+        num_classes=19
     ),
     test_cfg=dict(mode='slide', crop_size=crop_size, stride=(768, 768)),
 )

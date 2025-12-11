@@ -43,4 +43,3 @@ lr_config = dict(_delete_=True, policy='poly',
 data=dict(samples_per_gpu=1)            # total batch size 8
 # data=dict(samples_per_gpu=4)            # models are trained on 4 GPUs with 4 images per GPU
 evaluation = dict(interval=4000, metric='mIoU')     # cityscapes
-
