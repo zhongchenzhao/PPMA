@@ -313,10 +313,12 @@ This project is released under the Apache 2.0 license. Please see the [LICENSE](
 
 If you use PPMA in your research, please consider the following BibTeX entry and giving us a star:
 ```BibTeX
-@article{zhao2025polylinepathmaskedattention,
-         title={Polyline Path Masked Attention for Vision Transformer}, 
-         author={Zhongchen Zhao and Chaodong Xiao and Hui Lin and Qi Xie and Lei Zhang and Deyu Meng},
-         journal={arXiv preprint arXiv:2506.15940},
-         year={2025}, 
+@article{zhao2026polyline,
+  title={Polyline Path Masked Attention for Vision Transformer},
+  author={Zhao, Zhongchen and Xiao, Chaodong and Lin, Hui and Xie, Qi and Zhang, Lei and Meng, Deyu},
+  journal={Advances in Neural Information Processing Systems},
+  volume={38},
+  pages={73857--73890},
+  year={2026}
 }
 ```
